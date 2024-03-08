@@ -41,3 +41,5 @@ function repetirTexto(texto, n) {
   console.log(texto.repeat(n));
 }
 repetirTexto("Hola mundo, ", 3);
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
