@@ -33,13 +33,38 @@ const fContadorCaracteres = (cadena) => {
   return CADENA_TRIM.length;
 };
 
-console.log(
-  fContadorCaracteres("Hola Mundo")
-);
+console.log(fContadorCaracteres("Hola Mundo"));
 
 // 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion devolverá ['hola', 'que', 'tal']."));
+const fStringToArray = (texto) => {
+  //Validación 0: No permitir que el texto este vacio
+  if (!texto) return "No ingresaste ningun texto";
+
+  //Validacion 1: No permir palabras antisonantes
+  for (let i = 0; i < texto.length; i++) {
+    let palabraNo = ["menso", "sonso", "cabezon"];
+    if (texto[i].includes(palabraNo))
+      return `No se permite la palabra" ${palabraNo}`;
+  }
+  //Validacion 2: Que el dato ingresado sea un string
+  if (typeof texto !== "string") return "Debe ingresar un texto";
+
+  //Validacion 3: No permitir caracteres diferentes del abecedario
+  const REGEXA = /[A-Za-z\s]/gi;
+  for (let e = 0; e < texto.length; e++) {
+    if (!REGEXA.test(texto)) return "No puede contener caracteres especiales";
+  }
+
+  //Código
+  let textoConvertido = texto.split(" ");
+  return textoConvertido;
+};
+
+const textoPrueba = "hola que tal";
+console.log(fStringToArray(textoPrueba));
 
 // 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+
 
 // 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion devolverá ['hola', 'que', 'tal'].
 
