@@ -35,7 +35,7 @@ const fContadorCaracteres = (cadena) => {
 
 console.log(fContadorCaracteres("Hola Mundo"));
 
-// 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion devolverá ['hola', 'que', 'tal']."));
+// 2) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion devolverá ['hola', 'que', 'tal']."));
 const fStringToArray = (texto) => {
   //Validación 0: No permitir que el texto este vacio
   if (!texto) return "No ingresaste ningun texto";
@@ -63,9 +63,32 @@ const fStringToArray = (texto) => {
 const textoPrueba = "hola que tal";
 console.log(fStringToArray(textoPrueba));
 
-// 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+// 3) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+const fCortarCadena = (tCortar, nCortar) => {
+  // Validacion 0: Verificar que los datos no vengan vacios
+  if (!tCortar) return "Ingrese un texto";
+  if (!nCortar) return "Ingrese un número";
 
+  // Validacion de tipo de datos
+  if (typeof tCortar !== "string") return "Este campo solo permite texto";
+  if (typeof nCortar !== "number") return "Este campo solo permite números";
 
-// 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion devolverá ['hola', 'que', 'tal'].
+  // Validacion de longitud del número
+  if (nCortar > tCortar.length)
+    return "El número no puede ser mayor que la longitud del texto";
+
+  //Validacion de caracteres para el texto
+  const REGEXB = /[a-z\s]/gi;
+  for (let i = 0; i > tCortar.length; i++) {
+    if (REGEXB.test(tCortar[i]))
+      return "El texto no puede contener caracteres especiales";
+  }
+
+  let textoCortado = tCortar.slice(0,nCortar);
+  return textoCortado;
+};
+
+const textoPrueba2 = "hola que tal";
+console.log(fCortarCadena(textoPrueba2,4));
 
 // 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
