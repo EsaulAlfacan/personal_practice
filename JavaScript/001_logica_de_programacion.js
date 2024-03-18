@@ -84,11 +84,29 @@ const fCortarCadena = (tCortar, nCortar) => {
       return "El texto no puede contener caracteres especiales";
   }
 
-  let textoCortado = tCortar.slice(0,nCortar);
+  let textoCortado = tCortar.slice(0, nCortar);
   return textoCortado;
 };
 
 const textoPrueba2 = "hola que tal";
-console.log(fCortarCadena(textoPrueba2,4));
+console.log(fCortarCadena(textoPrueba2, 4));
 
 // 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+const fRepetirTextos = (text, num) => {
+  // Validaciones de text
+  if (!text) return "Ingrese un texto";
+  if (typeof text !== "string") return "El número debe ser un texto";
+  const expresionRegular = /[a-z]/gi;
+  if (!expresionRegular.test(text))
+    return "El texto tiene caracteres no soportados";
+  // Validaciones de num
+  if (!num) return "Falta que introduzcas el número";
+  if (typeof num !== "number") return "Este dato no es un número";
+  if (num <= 0) return "El número no puede ser negativo";
+  if (num % 1 !== 0) return "El número no puede contener decimales";
+
+  return text.repeat(num);
+};
+
+const tPrueba = "Hola Mundo ";
+console.log(fRepetirTextos(tPrueba, 3));
