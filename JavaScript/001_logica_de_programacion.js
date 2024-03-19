@@ -37,17 +37,18 @@ console.log(fContadorCaracteres("Hola Mundo"));
 
 // 2) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion devolverá ['hola', 'que', 'tal']."));
 const fStringToArray = (texto) => {
-  //Validación 0: No permitir que el texto este vacio
-  if (!texto) return "No ingresaste ningun texto";
+  //Validacion 0: Que el dato ingresado sea un string
+  if (typeof texto !== "string") return "Debe ingresar un texto";
+  //Validación 1: No permitir que el texto este vacio
+  if (!texto.trim) return "No ingresaste ningun texto";
 
-  //Validacion 1: No permir palabras antisonantes
-  for (let i = 0; i < texto.length; i++) {
-    let palabraNo = ["menso", "sonso", "cabezon"];
-    if (texto[i].includes(palabraNo))
+  //Validacion 2: No permir palabras antisonantes
+  let palabraNo = ["menso", "sonso", "cabezon"];
+
+  for (let j = 0; j < palabraNo.length; j++) {
+    if (texto.includes(palabraNo[j]))
       return `No se permite la palabra" ${palabraNo}`;
   }
-  //Validacion 2: Que el dato ingresado sea un string
-  if (typeof texto !== "string") return "Debe ingresar un texto";
 
   //Validacion 3: No permitir caracteres diferentes del abecedario
   const REGEXA = /[A-Za-z\s]/gi;
